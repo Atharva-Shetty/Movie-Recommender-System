@@ -1,12 +1,17 @@
 
 from flask import Flask, render_template, request
+
+import json
 import bs4 as bs
 import urllib.request
+
+import requests
 from recommender import *
 
 app = Flask(__name__)
 
 @app.route("/")
+@app.route("/home")
 def home():
     suggestions = get_suggestions()
     return render_template('home.html',suggestions=suggestions)
@@ -15,38 +20,35 @@ def home():
 def similarity():
     movie = request.form['name']
     recommended_movie = recommend_movie(movie)
-    
-    if isinstance(recommended_movie, str):
+    if type(recommended_movie)==type('string'):
         return recommended_movie
     else:
-        return "-".join(recommended_movie)
+        m_str="---".join(recommended_movie)
+        return m_str
 
 
 @app.route("/recommend",methods=["POST"])
 def recommend():
 
     title = request.form['title']
-    
-    
     cast_ids = request.form['cast_ids']
     cast_names = request.form['cast_names']
-    cast_bios = request.form['cast_bios']
     cast_places = request.form['cast_places']
     cast_profiles = request.form['cast_profiles']
     cast_chars = request.form['cast_chars']
     cast_bdays = request.form['cast_bdays']
-    
+    cast_bios = request.form['cast_bios']
     
     
     imdb_id = request.form['imdb_id']
     poster = request.form['poster']
-    genres = request.form['genres']
-    overview = request.form['overview']
+    vote_count = request.form['vote_count']
     release_date = request.form['release_date']
     runtime = request.form['runtime']
     status = request.form['status']
+    genres = request.form['genres']
+    overview = request.form['overview']
     vote_average = request.form['rating']
-    vote_count = request.form['vote_count']
     
     
     
@@ -57,11 +59,11 @@ def recommend():
     suggestions = get_suggestions()
 
     rec_movies = list_converter(rec_movies)
-    cast_chars = list_converter(cast_chars)
-    cast_profiles = list_converter(cast_profiles)
-    cast_bdays = list_converter(cast_bdays)    
     rec_posters = list_converter(rec_posters)
     cast_names = list_converter(cast_names)
+    cast_chars = list_converter(cast_chars)
+    cast_profiles = list_converter(cast_profiles)
+    cast_bdays = list_converter(cast_bdays)
     cast_bios = list_converter(cast_bios)
     cast_places = list_converter(cast_places)
     
