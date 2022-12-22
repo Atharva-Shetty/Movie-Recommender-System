@@ -71,4 +71,4 @@ Flask
 ## Made by
 
 - Backend and Ml by [@Atharva-Shetty](https://www.github.com/Atharva-Shetty)
-- Front-End by [@Pranjal-Bhagat]((https://github.com/Pranjal-2004))
+- Front-End by [@Pranjal-Bhagat](https://github.com/Pranjal-2004)
