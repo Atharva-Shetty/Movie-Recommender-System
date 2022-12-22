@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Recommender System</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=EB Garamond' rel='stylesheet'>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Auto Complete -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <script type="text/javascript">
+    var films = {{suggestions|tojson}};
+  </script>
+
+</head>
+
+<body id="content" style="font-family: 'Noto Sans JP', sans-serif;">
+
+	<header class="sticky">
+    <!-- <img src="../static/logo.jpg" class="navbar" alt="logo"> -->
+    <center><h1 class="main-heading" style = "color: aqua">Movie Recommender System</h1></center>
+  </header>
+  <div>
+    <div class="form-group shadow-textarea" style="text-align: center;color: white;">
+        <input type="text" name="movie" class="movie form-control" id="autoComplete" autocomplete="off" placeholder="Enter the Movie Name" style="background-color: transparent;border-color:#ffffff;margin-top: 130px; width: 50%;height: 45px; color: #fbf9f9" required="required" />
+        <br>
+    </div>
+
+    <div class="form-group" style="text-align: center;">
+      <button class="btn btn-primary btn-block movie-button" style="background-color: aqua ;text-align: center; color: #000000   ;width:120px; margin-top: 3px;" disabled="true" onclick="clicked()" >Search</button><br><br>
+    </div>
+	</div>
+  <div id="videohome">
+  <div>
+   <h1 class="rec-title">Recommended For You</h1>
+   <div class="mov-list">
+
+    <div class="c-container">
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Avatar') ; clicked()">
+      <img src="../static/avatar.jpg" alt="" class="c-image" >
+      <div class="c-body">
+        <h1 class="number"></h1>
+        <h3 class="movie-name">Movie Name</h3>
+        <h6 class="description">Avatar</h6>
+      </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The avengers') ; clicked()">
+        <img src="../static/avengers.jpg" alt="" class="c-image">
+        <div class="c-body">
+          <h3 class="movie-name">Movie Name</h3>
+          <h6 class="description">The Avengers</h6>
+        </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Adore') ; clicked()" >
+        <img src="../static/adore.jpg" alt="" class="c-image">
+          <div class="c-body">
+           <h3 class="movie-name">Movie Name</h3>
+           <h6 class="description">Adore</h6>
+        </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Interstellar') ; clicked()">
+            <img src="../static/interstellar.jpg" alt="" class="c-image">
+            <div class="c-body">
+              <h3 class="movie-name">Movie Name</h3>
+              <h6 class="description">Interstellar</h6>
+            </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','King kong') ; clicked()">
+              <img src="../static/king kong.jpg" alt="" class="c-image">
+              <div class="c-body">
+                <h3 class="movie-name">Movie Name</h3>
+                <h6 class="description">King Kong</h6>
+              </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Lage raho munna bhai') ; clicked()">
+                <img src="../static/lage raho munna bhai.jpg" alt="" class="c-image">
+                <div class="c-body">
+                  <h3 class="movie-name">Movie Name</h3>
+                  <h6 class="description">Lage raho Munna Bhai</h6>
+                </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Charlie and the chocolate factory') ; clicked()">
+                  <img src="../static/charlie.jpg" alt="" class="c-image">
+                  <div class="c-body">
+                    <h3 class="movie-name">Movie Name</h3>
+                    <h6 class="description">Charlie and the chocolate factory</h6>
+                  </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The lord of the rings: the fellowship of the ring') ; clicked()">
+                    <img src="../static/lord of the rings.jpg" alt="" class="c-image">
+                    <div class="c-body">
+                      <h3 class="movie-name">Movie Name</h3>
+                      <h6 class="description">Lord of the Rings</h6>
+                    </div>
+      </div>
+      <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The terminator') ; clicked()">
+        <img src="../static/terminator.jpg" alt="" class="c-image">
+        <div class="c-body">
+          <h3 class="movie-name">Movie Name</h3>
+          <h6 class="description">The Terminator</h6>
+        </div>
+        </div>
+        <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The day after tomorrow') ; clicked()">
+          <img src="../static/day after tomorrow.jpg" alt="" class="c-image">
+          <div class="c-body">
+            <h3 class="movie-name">Movie Name</h3>
+            <h6 class="description">The day after Tomorrow</h6>
+          </div>
+        </div>
+    </div>
+    </div>
+   </div>
+   <br><br><br>
+
+   <div>
+    <h1 class="pop-title">Popular Shows</h1>
+    <div class="mov-list">
+     <!-- <button class="pre-butn"><img src="../static/pre.png" alt=""></button>
+     <button class="nxt-butn"><img src="../static/nxt.png" alt=""></button> -->
+     <div class="c-container">
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The social network') ; clicked()">
+       <img src="../static/the social network.jpg" alt="" class="c-image">
+       <div class="c-body">
+         <h3 class="movie-name">Movie Name</h3>
+         <h6 class="description">The Social Network</h6>
+       </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The fault in our stars') ; clicked()">
+         <img src="../static/the fault in our stars.jpg" alt="" class="c-image">
+         <div class="c-body">
+           <h3 class="movie-name">Movie Name</h3>
+           <h6 class="description">The fault in our stars</h6>
+         </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The wolf of wall street') ; clicked()">
+         <img src="../static/the wolf of wallstreet.jpg" alt="" class="c-image">
+           <div class="c-body">
+            <h3 class="movie-name">Movie Name</h3>
+            <h6 class="description">The wolf of wallstreet</h6>
+         </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Spider-man 3') ; clicked()">
+             <img src="../static/spiderman3.jpg" alt="" class="c-image">
+             <div class="c-body">
+               <h3 class="movie-name">Movie Name</h3>
+               <h6 class="description">Spider-man 3</h6>
+             </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','King kong') ; clicked()">
+               <img src="../static/king kong.jpg" alt="" class="c-image">
+               <div class="c-body">
+                 <h3 class="movie-name">Movie Name</h3>
+                 <h6 class="description">King Kong</h6>
+               </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','The imitation game') ; clicked()">
+                 <img src="../static/imitation game.jpg" alt="" class="c-image">
+                 <div class="c-body">
+                   <h3 class="movie-name">Movie Name</h3>
+                   <h6 class="description">The imitataion game</h6>
+                 </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Monsters, inc.') ; clicked()">
+                   <img src="../static/monstorinc.jpg" alt="" class="c-image">
+                   <div class="c-body">
+                     <h3 class="movie-name">Movie Name</h3>
+                     <h6 class="description">Monstor,Inc</h6>
+                   </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Inception') ; clicked()">
+                     <img src="../static/inception.jpg" alt="" class="c-image">
+                     <div class="c-body">
+                       <h3 class="movie-name">Movie Name</h3>
+                       <h6 class="description">Inception</h6>
+                     </div>
+       </div>
+       <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Toy story 3') ; clicked()">
+         <img src="../static/toy story 3.jpg" alt="" class="c-image">
+         <div class="c-body">
+           <h3 class="movie-name">Movie Name</h3>
+           <h6 class="description">Toy story 3</h6>
+         </div>
+         </div>
+         <div class="c" onclick="load_details('7fee067b60fd14ed0bd0013b0863045f','Wreck-it ralph') ; clicked()">
+           <img src="../static/wreck-it ralph.jpg" alt="" class="c-image">
+           <div class="c-body">
+             <h3 class="movie-name">Movie Name</h3>
+             <h6 class="description">Wreck-it ralph</h6>
+           </div>
+         </div>
+     </div>
+    </div>
+   </div>
+   <br><br>
+   <div style="background-color: black;" id="a123" >
+    <div>
+      <br><br><br><br>
+      <center><p class="heading"><h2>THE PLACE TO KNOW EVERYTHING</h2></p></center>
+      <center><p class="heading"><h2>ABOUT MOVIES</h2></p></center>
+   </div>
+   <div class="tpcl">
+      <img style="display:block; margin:0px auto;" src="../static/giffy.gif" alt="space" class="giffy">
+   </div>
+    <br><br><br>
+    <div>
+      <p style="color: aqua; font-size: 12px; margin-left: 20px; margin-right: 20px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis non explicabo expedita alias est fugiat id tenetur qui voluptate consectetur delectus impedit voluptas minima, eum aperiam eveniet deserunt soluta. A? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem at molestiae dolorem libero, deleniti quas placeat vitae non repellat repudiandae, sunt voluptates, hic reiciendis ullam soluta atque iure dolore accusantium!</p>
+    </div>
+  
+    <br><br><br>
+  </div>
+
+
+  <div style="background: rgb(3, 3, 42);">
+    <div class="advlink" style=" width: 30%; float: right; margin-top: 0px;">
+      <ul>
+        <li ><p class="adv-tags" style="font-size: 20px;">Front-End By</p></li><br>
+        <li ><p class="adv-tags">Pranjal Bhagat</p></li><br>
+        <li ><i class="fa fa-linkedin-square" style="font-size:16px ; color: #FFFFFF"></i><a href="https://www.linkedin.com/in/pranjal-bhagat-4a364222b" target="_blank" class="adv-links" >&nbsp;&nbsp;Linkedin</a></li><br>
+        <li ><i class="fa fa-github" style="font-size:16px ; color: #FFFFFF"></i><a href="https://github.com/Pranjal-2004" target="_blank" class="adv-links">&nbsp;&nbsp;Github</a></li><br>
+      </ul>
+    </div>
+    <div id="div2" style="color: whitesmoke; width: 30%; float: left; margin-top: 20px;">
+      <h2 style="margin-left: 30px;"><b>Movie</b></h2>
+      <h2 style="margin-left: 30px;"><b>Recommendation</b></h2>
+      <h2 style="margin-left: 30px;"><b>System</b></h2>
+    </div>
+    <div class="advlink" style=" width: 30%; margin: 0 auto; margin-top: 20px;">
+      <ul>
+        <li ><p class="adv-tags" style="font-size: 20px;">Project By</p></li><br>
+        <li ><p class="adv-tags">Atharva Shetty</p></li><br>
+        <li ><i class="fa fa-linkedin-square" style="font-size:16px ; color: #FFFFFF"></i><a href="https://www.linkedin.com/in/atharva-shetty-b31625228" target="_blank" class="adv-links" >&nbsp;&nbsp;Linkedin</a></li><br>
+        <li ><i class="fa fa-github" style="font-size:16px ; color: #FFFFFF"></i><a href="https://github.com/Atharva-Shetty" target="_blank" class="adv-links">&nbsp;&nbsp;Github</a></li><br>
+        </ul>
+    </div>
+
+  </div>
+  </div>
+
+
+  <div id="loader" class="text-center"></div>
+  
+  <div class="fail">
+    <center><h3>The movie wasen't found in our database </h3></center>
+  </div>
+
+	<div class="results">
+    <center>
+      <h2 id="name" class="text-uppercase"></h2>
+    </center>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='autocomplete.js')}}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='recommend.js')}}"></script>
+
+</body>
+</html>
 
