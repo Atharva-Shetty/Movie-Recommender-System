@@ -252,7 +252,6 @@ function clicked(){
     document.getElementById('a123').style.display="none";
 }
 //sliders
-
 let cardContainers =[...document.querySelectorAll('.c-container')];
 let preBtns =[...document.querySelectorAll('.pre-butn')];
 let nxtBtns =[...document.querySelectorAll('.nxt-butn')];
