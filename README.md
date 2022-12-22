@@ -14,8 +14,9 @@ Insert gif or link to demo
 Clone the project using command
 
 ```bash
-  git clone https:
-  cd
+  git clone https://github.com/Atharva-Shetty/Movie-Recommender-System.git
+  cd Movie-Recommender-System
+
 ```
     
 Install the basic requirements by 
@@ -37,7 +38,7 @@ Go to address 127.0.0.1:5000 to see the website
 
 ## Screenshots
 
-![App Screenshot](![image](https://github.com/Atharva-Shetty/Movie-Recommender-System/blob/main/images/screenshot?raw=true))
+![App Screenshot](![image](https://user-images.githubusercontent.com/94366989/209110364-2c5b9f56-7915-4729-bbba-dc3977a2ae93.jpg))
 
 
 ## Technology Used
@@ -54,6 +55,7 @@ Flask
 **ML Libraries:** 
 
  Sci-kit learn , Numpy , Pandas , Nltk
+
 
 
 
