@@ -11,17 +11,6 @@ filename = 'nlp.pkl'
 clf = pickle.load(open(filename, 'rb'))
 vectorizer = pickle.load(open('transform.pkl','rb'))
 
-def list_converter(arr):
-    arr = arr.split('","')
-    arr[0] = arr[0].replace('["','')
-    arr[-1] = arr[-1].replace('"]','')
-    return arr
-
-
-def get_suggestions():
-    data = pd.read_csv('main_data.csv')
-    return list(data['movie_title'].str.capitalize())
-
 def create_similarity():
     data = pd.read_csv('main_data.csv')
 
@@ -31,17 +20,17 @@ def create_similarity():
     similarity = cosine_similarity(count_matrix)
     return data,similarity
 
-def recommend_movie(movie_name):
-    movie_name = movie_name.lower()
+def recommend_movie(movie):
+    movie = movie.lower()
     try:
         data.head()
         similarity.shape
     except:
         data, similarity = create_similarity()
-    if movie_name not in data['movie_title'].unique():
-        return("The movie wasen't found in our dataset")
+    if movie not in data['movie_title'].unique():
+        return('The movie is not available')
     else:
-        i = data.loc[data['movie_title']==movie_name].index[0]
+        i = data.loc[data['movie_title']==movie].index[0]
         lst = list(enumerate(similarity[i]))
         lst = sorted(lst, key = lambda x:x[1] ,reverse=True)
         lst = lst[1:11]
@@ -53,7 +42,16 @@ def recommend_movie(movie_name):
     
 
 
+def list_converter(arr):
+    arr = arr.split('","')
+    arr[0] = arr[0].replace('["','')
+    arr[-1] = arr[-1].replace('"]','')
+    return arr
 
+
+def get_suggestions():
+    data = pd.read_csv('main_data.csv')
+    return list(data['movie_title'].str.capitalize())
 
 
 
