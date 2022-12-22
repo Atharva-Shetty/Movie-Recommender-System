@@ -5,9 +5,6 @@ The recommender System uses Machine Learning and Natural Language processing to 
 
 
 
-## Demo
-
-Insert gif or link to demo
 
 
 ## Installation
