@@ -37,7 +37,7 @@ Go to address 127.0.0.1:5000 to see the website
 
 ## Screenshots
 
-![App Screenshot](![image](https://user-images.githubusercontent.com/94366989/209107402-4bd99220-2d5a-456d-8cfd-c9dbd5bf9a30.png))
+![App Screenshot](![image](https://github.com/Atharva-Shetty/Movie-Recommender-System/blob/main/images/screenshot?raw=true))
 
 
 ## Technology Used
