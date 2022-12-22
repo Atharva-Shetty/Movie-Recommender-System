@@ -37,8 +37,7 @@ To deploy this project run
 Go to address 127.0.0.1:5000 to see the website
 
 ## Screenshots
-
-![App Screenshot](![image](https://user-images.githubusercontent.com/94366989/209110364-2c5b9f56-7915-4729-bbba-dc3977a2ae93.jpg))
+![screenshot](https://user-images.githubusercontent.com/94366989/209110583-1f6e7335-6a75-42dc-9431-45f61876fe83.jpg)
 
 
 ## Technology Used
