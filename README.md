@@ -9,7 +9,10 @@ The recommender System uses Machine Learning and Natural Language processing to 
 ## Demo
 
 
-https://user-images.githubusercontent.com/94366989/209852258-f9ac5838-9214-4d66-ae63-c2a50b0ff2dd.mp4
+
+https://user-images.githubusercontent.com/94366989/210588118-b34b167a-d563-4eed-b1e6-5d1056348fb5.mp4
+
+
 
 
 
